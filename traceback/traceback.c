@@ -8,6 +8,7 @@
  */
 
 #include "traceback_internal.h"
+#include <string.h>
 
 void traceback(FILE *fp)
 {
@@ -16,8 +17,15 @@ void traceback(FILE *fp)
 	 * file that it's declared in, symtabgen won't be able to find
 	 * the symbol. So be sure to always do something with functions */
 
+	
 	/* remove this line once you've got real code here */
-	printf("first function in table name: %s\n", functions[0].name);
+	int i;
+	for (i = 0; i < FUNCTS_MAX_NUM; ++i)
+	{
+		/* code */
+		if(!functions[i].addr) break;
+		printf("%d first function in table name: %s\n",i, functions[i].name);
+	}
 }
 
 
